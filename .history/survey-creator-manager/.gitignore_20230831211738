@@ -36,7 +36,3 @@ next-env.d.ts
 
 
 // vscode
-.history
-.vscode/*
-.history/*
-.vscode/*
