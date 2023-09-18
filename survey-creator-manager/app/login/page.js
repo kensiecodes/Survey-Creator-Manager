@@ -5,9 +5,16 @@ import Link from "next/link";
 export default function Page() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validation
+    if (!userName || !password) {
+      setError("Both username and password are required.");
+      return;
+    }
     console.log(`Username: ${userName} \nPassword: ${password}`);
     setPassword("");
     setUserName("");
@@ -43,6 +50,7 @@ export default function Page() {
         />
       </div>
       <div className="submit-group">
+        {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="mb-4">
           Login
         </button>
